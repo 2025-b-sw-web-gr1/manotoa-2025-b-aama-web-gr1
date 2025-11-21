@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estándares W3C con HTML5 Semántico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado principal del sitio -->
+    <header>
+        <div class="header-content">
+            <div>
+                <h1>Estándares Web W3C</h1>
+                <p>Ejemplo práctico usando HTML5 semántico en un sitio informativo.</p>
+            </div>
+            <p class="tagline">Diseño Web · Accesibilidad · Buenas prácticas</p>
+        </div>
+    </header>
+
+    <!-- Menú de navegación principal -->
+    <nav aria-label="Navegación principal">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#estandares">Estándares</a></li>
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#recursos">Recursos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main id="inicio">
+        <!-- Sección de bienvenida / hero -->
+        <section class="hero" aria-labelledby="titulo-hero">
+            <div class="hero-texto">
+                <h2 id="titulo-hero">¿Qué es el W3C y por qué importa?</h2>
+                <p>
+                    El <strong>World Wide Web Consortium (W3C)</strong> es la organización que define
+                    muchos de los estándares que usamos a diario en la Web: HTML, CSS, accesibilidad,
+                    gráficos y más. Seguir estos estándares permite crear sitios compatibles,
+                    accesibles y fáciles de mantener.
+                </p>
+                <p>
+                    En esta página mostramos un ejemplo práctico de estructura semántica con
+                    <strong>HTML5</strong>, aplicando las recomendaciones del W3C para organizar el contenido.
+                </p>
+            </div>
+            <aside class="hero-aside" aria-label="Datos rápidos sobre el W3C">
+                <h3>Datos rápidos</h3>
+                <ul>
+                    <li>Fundado por Tim Berners-Lee.</li>
+                    <li>Busca una Web abierta e interoperable.</li>
+                    <li>Reúne empresas, universidades y comunidad técnica.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <!-- Sección de estándares con artículos -->
+        <section id="estandares" aria-labelledby="titulo-estandares">
+            <h2 id="titulo-estandares">Principales estándares del W3C</h2>
+            <p class="intro-seccion">
+                A continuación se presentan algunos estándares clave que influyen en el desarrollo web moderno.
+            </p>
+
+            <section class="grid-estandares" aria-label="Tarjetas de estándares">
+                <article>
+                    <h3>HTML5</h3>
+                    <p>
+                        Lenguaje base para estructurar el contenido de una página: títulos, párrafos,
+                        listas, formularios y elementos multimedia.
+                    </p>
+                    <p class="nota">
+                        En este proyecto, HTML5 semántico es el estándar principal que estamos implementando.
+                    </p>
+                </article>
+
+                <article>
+                    <h3>CSS</h3>
+                    <p>
+                        Hoja de estilos en cascada que controla el diseño visual: colores, tipografías,
+                        márgenes, distribuciones y adaptabilidad a distintos tamaños de pantalla.
+                    </p>
+                </article>
+
+                <article>
+                    <h3>WCAG</h3>
+                    <p>
+                        Las Web Content Accessibility Guidelines ayudan a que los sitios sean utilizables
+                        por personas con distintas capacidades, apoyando la inclusión digital.
+                    </p>
+                </article>
+
+                <article>
+                    <h3>SVG</h3>
+                    <p>
+                        Formato de gráficos vectoriales escalables que se adaptan a distintas resoluciones
+                        sin perder calidad. Ideal para íconos y logotipos.
+                    </p>
+                </article>
+            </section>
+        </section>
+
+        <!-- Sección de historia / línea de tiempo -->
+        <section id="historia" aria-labelledby="titulo-historia">
+            <h2 id="titulo-historia">Breve línea de tiempo del W3C</h2>
+            <ol class="timeline">
+                <li>
+                    <time datetime="1994">1994</time>
+                    <p>Se funda el W3C bajo el liderazgo de Tim Berners-Lee.</p>
+                </li>
+                <li>
+                    <time datetime="1996">1996</time>
+                    <p>Comienza la estandarización de CSS para separar contenido y presentación.</p>
+                </li>
+                <li>
+                    <time datetime="1999">1999</time>
+                    <p>Se publican recomendaciones clave que consolidan la estructura básica de la Web.</p>
+                </li>
+                <li>
+                    <time datetime="2014">2014</time>
+                    <p>HTML5 se convierte en una recomendación oficial del W3C.</p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Sección de recursos recomendados -->
+        <section id="recursos" aria-labelledby="titulo-recursos">
+            <h2 id="titulo-recursos">Recursos oficiales y documentación</h2>
+            <p>
+                Para profundizar en los estándares, es recomendable consultar la documentación oficial
+                y guías técnicas del W3C.
+            </p>
+            <ul class="lista-recursos">
+                <li>
+                    <a href="https://www.w3.org/TR/html52/" target="_blank" rel="noopener noreferrer">
+                        Especificación HTML5 (W3C)
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.w3.org/TR/CSS/" target="_blank" rel="noopener noreferrer">
+                        Especificaciones de CSS
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">
+                        WCAG – Guías de accesibilidad
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Sección de contacto / formulario -->
+        <section id="contacto" aria-labelledby="titulo-contacto">
+            <h2 id="titulo-contacto">Contacto y comentarios</h2>
+            <p>
+                Este formulario no envía datos, pero se incluye como ejemplo semántico de
+                un formulario estructurado con etiquetas adecuadas.
+            </p>
+
+            <form>
+                <div class="campo-formulario">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre">
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com">
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu comentario"></textarea>
+                </div>
+
+                <button type="submit">Enviar ejemplo</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>
+            Proyecto de clase: Implementación de un estándar del W3C usando HTML5 semántico.
+        </p>
+        <p>
+            Autor: Axel Manotoa · Curso: Apliaciones Web · Fecha: <time datetime="2025-11-21">2025</time>
+        </p>
+    </footer>
+</body>
+</html>

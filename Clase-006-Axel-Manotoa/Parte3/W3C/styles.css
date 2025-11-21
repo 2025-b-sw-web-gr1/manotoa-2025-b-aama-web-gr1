@@ -1,0 +1,246 @@
+/* Estilo base */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #222;
+    background-color: #fafafa;
+}
+
+/* Encabezado */
+header {
+    background: #1f4f7b;
+    color: #fff;
+    padding: 1.5rem 2rem;
+}
+
+.header-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin: 0.3rem 0 0;
+}
+
+.tagline {
+    font-style: italic;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Navegación */
+nav {
+    background-color: #eeeeee;
+    padding: 0.5rem 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #1f4f7b;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Contenido principal */
+main {
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Sección hero */
+.hero {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: start;
+}
+
+.hero-aside {
+    background-color: #f4f7fb;
+    padding: 1rem;
+    border-left: 4px solid #1f4f7b;
+}
+
+.hero-aside ul {
+    padding-left: 1.2rem;
+}
+
+/* Sección estándares */
+#estandares {
+    margin-bottom: 2rem;
+}
+
+.intro-seccion {
+    max-width: 700px;
+}
+
+.grid-estandares {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.grid-estandares article {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.grid-estandares h3 {
+    margin-top: 0;
+}
+
+.nota {
+    margin-top: 0.7rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #444;
+}
+
+/* Línea de tiempo */
+#historia {
+    margin-bottom: 2rem;
+}
+
+.timeline {
+    list-style: none;
+    padding: 0;
+    border-left: 2px solid #1f4f7b;
+    margin-left: 0.5rem;
+}
+
+.timeline li {
+    margin: 0.8rem 0;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.timeline li::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #1f4f7b;
+    border-radius: 50%;
+    position: absolute;
+    left: -6px;
+    top: 0.5rem;
+}
+
+.timeline time {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+/* Recursos */
+#recursos {
+    margin-bottom: 2rem;
+}
+
+.lista-recursos {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.lista-recursos a {
+    color: #1f4f7b;
+}
+
+/* Formulario de contacto */
+#contacto {
+    margin-bottom: 2.5rem;
+}
+
+form {
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    max-width: 500px;
+}
+
+.campo-formulario {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    padding: 0.5rem;
+    border-radius: 3px;
+    border: 1px solid #bbb;
+    font: inherit;
+}
+
+button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 3px;
+    background-color: #1f4f7b;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Pie de página */
+footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        justify-content: flex-start;
+    }
+}
