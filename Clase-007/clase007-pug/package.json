@@ -1,0 +1,13 @@
+{
+  "name": "clase007-pug",
+  "version": "1.0.0",
+  "description": "Taller Clase 007 - Motores de Renderizado Web con Pug",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "pug": "^3.0.2"
+  }
+}

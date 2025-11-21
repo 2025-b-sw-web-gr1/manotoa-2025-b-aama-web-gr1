@@ -1,0 +1,123 @@
+extends layout
+
+block content
+  // HERO
+  section.hero#sobre-mi
+    .hero-left
+      h1 #{nombre}
+      h2 #{rolActual} · #{ubicacion}
+
+      .hero-tags
+        span.hero-tag Desarrollo Web
+        span.hero-tag Motores de renderizado
+        span.hero-tag Node.js + Pug
+
+      p #{descripcionCorta}
+
+      .hero-actions
+        a.btn.btn-primary(href="#contacto")
+          | Contactar
+        a.btn.btn-ghost(href="#proyectos")
+          | Ver proyectos
+
+    .hero-right
+      h3 Resumen
+      p #{descripcionLarga}
+
+      .hero-right-row
+        p
+          strong Aprendizaje actual
+          br
+          span(style="font-size:0.8rem; color:#9ca3af;") Tecnologías, IA y proyectos prácticos
+        .hero-kpi
+          strong 2024 - 2025
+          span Etapa de construcción de portafolio
+
+  // GRID PRINCIPAL
+  section.section
+    .grid
+      // Columna izquierda
+      .col-left(style="grid-column: span 7; display:flex; flex-direction:column; gap:1rem;")
+        // Skills
+        section#skills
+          h3.section-title Habilidades
+          .card
+            .skills-list
+              each skill in skills
+                span.skill-pill= skill
+
+        // Aprendizaje actual
+        section
+          h3.section-title En qué estoy trabajando
+          .card.card-soft
+            ul.list-simple
+              each item in aprendizajeActual
+                li= item
+
+        // Intereses
+        section
+          h3.section-title Intereses
+          .card
+            ul.list-simple
+              each interes in intereses
+                li= interes
+
+      // Columna derecha
+      .col-right(style="grid-column: span 5; display:flex; flex-direction:column; gap:1rem;")
+        // Educación
+        section#educacion
+          h3.section-title Educación
+          .card
+            .timeline
+              each edu in educacion
+                div
+                  p.timeline-item-title= edu.titulo
+                  p.timeline-sub #{edu.institucion} · #{edu.anio}
+                  p.timeline-text= edu.detalle
+
+        // Experiencia
+        section#experiencia
+          h3.section-title Experiencia
+          .card.card-soft
+            .timeline
+              each exp in experiencia
+                div
+                  p.timeline-item-title= exp.rol
+                  p.timeline-sub #{exp.lugar} · #{exp.periodo}
+                  p.timeline-text= exp.detalle
+
+  // PROYECTOS
+  section.section#proyectos
+    h3.section-title Proyectos recientes
+    .card
+      .projects
+        each proyecto in proyectos
+          .project-card
+            h4= proyecto.titulo
+            p= proyecto.detalle
+
+  // OBJETIVOS
+  section.section
+    h3.section-title Objetivos
+    .card.card-soft
+      ul.list-simple
+        each obj in objetivos
+          li= obj
+
+  // CONTACTO
+  section.section#contacto
+    h3.section-title Contacto
+    .card
+      .contact-info
+        p
+          | Correo:
+          |  
+          a(href=`mailto:${contacto.email}`)= contacto.email
+        p
+          | GitHub:
+          |  
+          a(href=contacto.github target="_blank") Ver perfil
+        p
+          | LinkedIn:
+          |  
+          a(href=contacto.linkedin target="_blank") Ver perfil profesional
