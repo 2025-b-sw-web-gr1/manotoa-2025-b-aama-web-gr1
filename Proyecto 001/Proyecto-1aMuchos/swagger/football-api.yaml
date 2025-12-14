@@ -1,0 +1,210 @@
+openapi: 3.0.0
+info:
+  title: API Equipos y Jugadores (1 a muchos)
+  version: 1.0.0
+  description: |
+    API RESTful con relación 1 a muchos:
+    - 1 Team (equipo) tiene muchos Players (jugadores)
+    - Player pertenece a un Team mediante teamId
+servers:
+  - url: http://localhost:3000
+
+tags:
+  - name: Teams
+  - name: Players
+
+paths:
+  /teams:
+    get:
+      tags: [Teams]
+      summary: Obtener todos los equipos
+      responses:
+        "200":
+          description: Lista de equipos
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Team" }
+    post:
+      tags: [Teams]
+      summary: Crear nuevo equipo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/TeamCreate" }
+            examples:
+              ejemplo:
+                value: { "name": "LDU Quito", "country": "Ecuador" }
+      responses:
+        "201":
+          description: Equipo creado
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Team" }
+
+  /teams/{id}:
+    get:
+      tags: [Teams]
+      summary: Obtener equipo por ID
+      parameters: [{ $ref: "#/components/parameters/IdPath" }]
+      responses:
+        "200":
+          description: Equipo encontrado
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Team" }
+        "404":
+          description: No encontrado
+    put:
+      tags: [Teams]
+      summary: Actualizar equipo completo
+      parameters: [{ $ref: "#/components/parameters/IdPath" }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Team" }
+            examples:
+              ejemplo:
+                value: { "id": 1, "name": "Barcelona FC", "country": "España" }
+      responses:
+        "200":
+          description: Equipo actualizado
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Team" }
+    delete:
+      tags: [Teams]
+      summary: Eliminar equipo por ID
+      parameters: [{ $ref: "#/components/parameters/IdPath" }]
+      responses:
+        "200":
+          description: Equipo eliminado
+
+  /players:
+    get:
+      tags: [Players]
+      summary: Obtener todos los jugadores
+      responses:
+        "200":
+          description: Lista de jugadores
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Player" }
+    post:
+      tags: [Players]
+      summary: Crear nuevo jugador
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/PlayerCreate" }
+            examples:
+              ejemplo:
+                value: { "name": "Jugador Nuevo", "position": "Defensa", "age": 22, "teamId": 1 }
+      responses:
+        "201":
+          description: Jugador creado
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Player" }
+
+  /players/{id}:
+    get:
+      tags: [Players]
+      summary: Obtener jugador por ID
+      parameters: [{ $ref: "#/components/parameters/IdPath" }]
+      responses:
+        "200":
+          description: Jugador encontrado
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Player" }
+        "404":
+          description: No encontrado
+    put:
+      tags: [Players]
+      summary: Actualizar jugador completo
+      parameters: [{ $ref: "#/components/parameters/IdPath" }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Player" }
+            examples:
+              ejemplo:
+                value: { "id": 1, "name": "Lionel Messi", "position": "Delantero", "age": 36, "teamId": 1 }
+      responses:
+        "200":
+          description: Jugador actualizado
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Player" }
+    delete:
+      tags: [Players]
+      summary: Eliminar jugador por ID
+      parameters: [{ $ref: "#/components/parameters/IdPath" }]
+      responses:
+        "200":
+          description: Jugador eliminado
+
+  /teams/{id}/players:
+    get:
+      tags: [Players]
+      summary: Obtener jugadores de un equipo (1 a muchos)
+      parameters: [{ $ref: "#/components/parameters/IdPath" }]
+      responses:
+        "200":
+          description: Lista de jugadores del equipo
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Player" }
+
+components:
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      schema: { type: integer, example: 1 }
+
+  schemas:
+    Team:
+      type: object
+      required: [id, name, country]
+      properties:
+        id: { type: integer, example: 1 }
+        name: { type: string, example: "Barcelona FC" }
+        country: { type: string, example: "España" }
+
+    TeamCreate:
+      type: object
+      required: [name, country]
+      properties:
+        name: { type: string, example: "LDU Quito" }
+        country: { type: string, example: "Ecuador" }
+
+    Player:
+      type: object
+      required: [id, name, position, age, teamId]
+      properties:
+        id: { type: integer, example: 1 }
+        name: { type: string, example: "Lionel Messi" }
+        position: { type: string, example: "Delantero" }
+        age: { type: integer, example: 36 }
+        teamId: { type: integer, example: 1 }
+
+    PlayerCreate:
+      type: object
+      required: [name, position, age, teamId]
+      properties:
+        name: { type: string, example: "Jugador Nuevo" }
+        position: { type: string, example: "Defensa" }
+        age: { type: integer, example: 22 }
+        teamId: { type: integer, example: 1 }
