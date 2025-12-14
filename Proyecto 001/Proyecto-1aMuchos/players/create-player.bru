@@ -1,0 +1,30 @@
+meta {
+  name: create-player
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:3000/players
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Jugador Nuevo",
+    "position": "Defensa",
+    "age": 22,
+    "teamId": 1
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

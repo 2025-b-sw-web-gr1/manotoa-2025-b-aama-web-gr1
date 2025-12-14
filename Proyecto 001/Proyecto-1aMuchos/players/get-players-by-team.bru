@@ -1,0 +1,18 @@
+meta {
+  name: get-players-by-team
+  type: http
+  seq: 3
+}
+
+get {
+  url: '''
+    http://localhost:3000/teams/1/players
+    
+'''
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

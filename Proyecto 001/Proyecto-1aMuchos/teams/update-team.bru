@@ -1,0 +1,29 @@
+meta {
+  name: update-team
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3000/teams/1
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "id": 1,
+    "name": "Barcelona FC",
+    "country": "España"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
